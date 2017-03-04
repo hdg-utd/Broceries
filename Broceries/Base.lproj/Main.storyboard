@@ -55,6 +55,9 @@
                                 <color key="backgroundColor" red="0.93707840682280963" green="1" blue="0.84683549384907342" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Bro"/>
+                                <connections>
+                                    <action selector="bro_shuffler:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ANl-bQ-1QQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

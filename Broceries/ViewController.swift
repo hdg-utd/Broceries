@@ -46,7 +46,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
       let ok = UIAlertAction(title: "OK",
                              style: UIAlertActionStyle.default) { (action: UIAlertAction) -> Void in
                               let textField = alert.textFields?[0]
-                              list.append((textField?.text)!)
+                              if((textField?.text)! != "") {
+                                 list.append((textField?.text)!)
+                              }
                               self.list_view.reloadData()
       }
       alert.addAction(ok)
@@ -62,6 +64,58 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                    completion: nil)
       
    }
+   
+   @IBAction func bro_shuffler(_ sender: Any) {
+      var intList = [Int]()
+      for item in list {
+         switch item.lowercased() {
+         case "cake mix", "flour", "oil", "salt", "sugar":
+            intList.append(1)
+         case "bagels", "buns", "muffins", "pita bread", "tortillas":
+            intList.append(2)
+         case "butter", "eggs", "half and half", "milk", "yogurt":
+            intList.append(3)
+         case "cola", "beer", "sparkling water", "sport drink", "wine":
+            intList.append(4)
+         case "bacon", "chicken", "sausage", "steak", "turkey":
+            intList.append(5)
+         case "bleach", "garbage bags", "glass cleaner", "scrubbers", "sponges":
+            intList.append(6)
+         case "apples", "carrots", "corn", "tomatoes", "potatoes":
+            intList.append(7)
+         case "body wash", "cough syrup", "deodrant", "shampoo", "pain reliever":
+            intList.append(8)
+         default:
+            intList.append(100)
+         }
+      }
+      
+      for i in 0..<(list.count) {
+         for j in 1..<(list.count - i) {
+            if(intList[j - 1] > intList[j]) {
+               let stringSwap = list[j - 1]
+               list[j - 1] = list[j]
+               list[j] = stringSwap
+               
+               let positionSwap = intList[j - 1]
+               intList[j - 1] = intList[j]
+               intList[j] = positionSwap
+            }
+         }
+      }
+      
+//      for elem in list {
+//         print(elem)
+//      }
+//      for elem in intList {
+//         print(elem)
+//      }
+      
+      list_view.reloadData()
+      
+      
+   }
+   
    
    override func viewDidLoad() {
       super.viewDidLoad()
