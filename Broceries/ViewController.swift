@@ -20,7 +20,49 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
    
    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-      cell.textLabel?.text = list[indexPath.row]
+      
+      var cellText = list[indexPath.row]
+      
+//      case "cake mix", "flour", "oil", "salt", "sugar":
+//      intList.append(1)
+//      case "bagels", "buns", "muffins", "pita bread", "tortillas":
+//      intList.append(2)
+//      case "butter", "eggs", "half and half", "milk", "yogurt":
+//      intList.append(3)
+//      case "cola", "beer", "sparkling water", "sport drink", "wine":
+//      intList.append(4)
+//      case "bacon", "chicken", "sausage", "steak", "turkey":
+//      intList.append(5)
+//      case "bleach", "garbage bags", "glass cleaner", "scrubbers", "sponges":
+//      intList.append(6)
+//      case "apples", "carrots", "corn", "tomatoes", "potatoes":
+//      intList.append(7)
+//      case "body wash", "cough syrup", "deodrant", "shampoo", "pain reliever":
+//      intList.append(8)
+
+      
+      if cellText.lowercased() == "cake mix" || cellText.lowercased() == "flour" || cellText.lowercased() == "oil" || cellText.lowercased() == "salt" || cellText.lowercased() == "sugar" {
+         cellText += "        Aisle: A1"
+      } else if cellText.lowercased() == "buns" || cellText.lowercased() == "muffins" || cellText.lowercased() == "pita bread" || cellText.lowercased() == "bagels" || cellText.lowercased() == "tortillas" {
+         cellText += "        Aisle: B1"
+      }else if cellText.lowercased() == "butter" || cellText.lowercased() == "eggs" || cellText.lowercased() == "half and half" || cellText.lowercased() == "milk" || cellText.lowercased() == "yogurt" {
+         cellText += "        Aisle: C1"
+      } else if cellText.lowercased() == "cola" || cellText.lowercased() == "beer" || cellText.lowercased() == "sparkling water" || cellText.lowercased() == "sport drink" || cellText.lowercased() == "wine" {
+         cellText += "        Aisle: D1"
+      }else if cellText.lowercased() == "bacon" || cellText.lowercased() == "chicken" || cellText.lowercased() == "sausage" || cellText.lowercased() == "steak" || cellText.lowercased() == "turkey" {
+         cellText += "        Aisle: D2"
+      } else if cellText.lowercased() == "garbage bags" || cellText.lowercased() == "glass cleaner" || cellText.lowercased() == "scrubbers" || cellText.lowercased() == "bleach" || cellText.lowercased() == "sponges" {
+         cellText += "        Aisle: C2"
+      } else if cellText.lowercased() == "apples" || cellText.lowercased() == "carrots" || cellText.lowercased() == "corn" || cellText.lowercased() == "tomatoes" || cellText.lowercased() == "potatoes" {
+         cellText += "        Aisle: B2"
+      }else if cellText.lowercased() == "body wash" || cellText.lowercased() == "cough syrup" || cellText.lowercased() == "deodrant" || cellText.lowercased() == "shampoo" || cellText.lowercased() == "pain reliever" {
+         cellText += "        Aisle: A2"
+      } else {
+         cellText += "        Product not in Store"
+      }
+      
+      
+      cell.textLabel?.text = cellText
       
       return (cell)
    }
