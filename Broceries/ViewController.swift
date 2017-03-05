@@ -19,6 +19,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
       return (list.count)
    }
    
+   @IBAction func populateButton(_ sender: Any) {
+      list.append("Cola")
+      list.append("Sugar")
+      list.append("Apples")
+      list.append("Cantaloupe")
+      list.append("Butter")
+      list.append("Bagels")
+      list.append("Shampoo")
+      list.append("Yogurt")
+      
+      list_view.reloadData()
+   }
+   
+   
    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
       
